@@ -1,5 +1,11 @@
+CXX = g++
+CXXFLAGS = --std=c++11 -Wall -Werror -pedantic -g
+
+# Enable Address sanitizer
+CXXFLAGS += -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
+
 main : main.cpp
-	g++ -Wall -Werror --std=c++11 -pedantic main.cpp -o main
+	$(CXX) $(CXXFLAGS) main.cpp -o main
 
 clean :
 	rm -rvf main *.dSYM *.stackdump
